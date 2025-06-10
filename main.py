@@ -8,7 +8,7 @@ def main():
 
     if args.check_password:
         from scanners import password_checker
-        password_checker.run_password_check()
+        password_checker.password_check()
 
 if __name__ == "__main__":
     main()
