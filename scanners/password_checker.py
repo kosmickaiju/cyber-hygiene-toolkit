@@ -30,7 +30,7 @@ def password_check():
     password = input("Enter your password to see if it's been pwned... ")
     count = check_pwned_password(password)
     if count:
-        print(f'Uh oh! This password has been found {count} times in data breaches. Change your passwords ASAP! Check out this site about good password practices: https://www.cisa.gov/secure-our-world/use-strong-passwords')
+        print(f'Uh oh! This password has been found {count} times in data breaches. Check out this site about good password practices to avoid being pwned again: https://www.cisa.gov/secure-our-world/use-strong-passwords')
     else:
         print(f'Good news! This password was not found in any known breaches... yet.')
 
