@@ -19,4 +19,18 @@ def check_pwned_password(password):
     prefix = sha1[:5]
     suffix = sha1[5:]
     data = fetch_pwned_data(prefix)
+    hashes = (line.split(':') for line in data.splitlines())
+    for h, count in hashes:
+        if h == suffix:
+            return int(count)
+    return 0
+
+# run the password check!
+def password_check():
+    password = input("Enter your password to see if it's been pwned... ")
+    count = check_pwned_password(password)
+    if count:
+        print(f'Uh oh! This password has been found {count} times in data breaches. Change your passwords ASAP! Check out this site about good password practices: https://www.cisa.gov/secure-our-world/use-strong-passwords')
+    else:
+        print(f'Good news! This password was not found in any known breaches... yet.')
 
